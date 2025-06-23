@@ -40,11 +40,6 @@ yarn-error.log
 .env.production
 .env.staging
 
-# Datenbank-Dumps
-*.sql
-*.sqlite
-*.db
-
 # Backup-Dateien
 *.bak
 *.backup
