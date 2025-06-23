@@ -1,0 +1,63 @@
+RewriteEngine On
+
+# Basis-URL setzen (falls CMS in Unterordner)
+# RewriteBase /cms/
+
+# Statische Dateien direkt ausliefern
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^(.*)$ $1 [L]
+
+# Public-Ordner direkt ausliefern
+RewriteRule ^public/(.*)$ public/$1 [L]
+
+# Alle anderen Requests an index.php weiterleiten
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Sicherheit: Verstecke .htaccess und andere sensible Dateien
+<Files ".htaccess">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "*.sql">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "config.php">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# PHP-Einstellungen
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+php_value max_execution_time 300
+php_value memory_limit 256M
+
+# Komprimierung aktivieren
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>
+
+# Browser-Caching
+#<IfModule mod_expires.c>
+    #ExpiresActive on
+    #ExpiresByType text/css "access plus 1 year"
+    #ExpiresByType application/javascript "access plus 1 year"
+    #ExpiresByType image/png "access plus 1 year"
+    #ExpiresByType image/jpg "access plus 1 year"
+    #ExpiresByType image/jpeg "access plus 1 year"
+    #ExpiresByType image/gif "access plus 1 year"
+    #ExpiresByType image/svg+xml "access plus 1 year"
+#</IfModule>

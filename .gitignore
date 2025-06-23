@@ -1,0 +1,102 @@
+# Uploads und Medien
+public/uploads/
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Logs
+*.log
+logs/
+error_log
+access_log
+
+# Cache und temporäre Dateien
+cache/
+tmp/
+temp/
+*.tmp
+*.temp
+
+# IDE und Editor Dateien
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Composer (falls verwendet)
+vendor/
+composer.lock
+
+# Node.js (falls verwendet)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Umgebungsvariablen
+.env
+.env.local
+.env.production
+.env.staging
+
+# Datenbank-Dumps
+*.sql
+*.sqlite
+*.db
+
+# Backup-Dateien
+*.bak
+*.backup
+*.old
+
+# Konfigurationsdateien mit sensiblen Daten
+config/database.local.php
+config/config.local.php
+
+# Session-Dateien
+sessions/
+
+# PHP-Fehler-Logs
+php_errors.log
+
+# Apache/Nginx Logs
+apache.log
+nginx.log
+
+# SSL-Zertifikate
+*.pem
+*.key
+*.crt
+*.csr
+
+# Archiv-Dateien
+*.zip
+*.tar.gz
+*.rar
+
+# Bild-Thumbnails und generierte Dateien
+public/uploads/thumbnails/
+public/uploads/cache/
+public/uploads/generated/
+
+# Benutzer-Uploads (alle Dateien außer .gitkeep)
+public/uploads/users/
+public/uploads/settings/
+public/uploads/*.jpg
+public/uploads/*.jpeg
+public/uploads/*.png
+public/uploads/*.gif
+public/uploads/*.webp
+public/uploads/*.svg
+public/uploads/*.pdf
+public/uploads/*.doc
+public/uploads/*.docx
+public/uploads/*.xls
+public/uploads/*.xlsx
+public/uploads/*.zip
+public/uploads/*.rar
+
+# Aber behalte .gitkeep Dateien
+!public/uploads/.gitkeep
+!public/uploads/*/.gitkeep 
